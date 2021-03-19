@@ -1,4 +1,5 @@
-import pool from '../../config/database';
+// import pool from '../../config/database';
+const pool = require('../../config/database');
 module.exports = {
     create : (data,callBack) => {
         pool.query(
@@ -8,6 +9,7 @@ module.exports = {
                 data.firstName,
                 data.lastName,
                 data.gender,
+                data.email,
                 data.password,
                 data.number,
                 
@@ -16,7 +18,7 @@ module.exports = {
                 if(error){
                     return callBack(error);
                 } else {
-                    return callBack(null,results);
+                    return callBack(null,result);
                 }
             }
         )
